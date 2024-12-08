@@ -35,7 +35,7 @@ function drawField() {
   ctx.fillStyle = 'black';
   ctx.font = '20px Arial';
   ctx.fillText(`Linkes Team ${leftScore}`, 20, 30);
-  ctx.fillText(`${rightScore} Rechtes Team `, canvas.width - 140, 30);
+  ctx.fillText(`${rightScore} Rechtes Team `, canvas.width - 150, 30);
 
   // Timer einblenden
   ctx.fillStyle = 'black';
@@ -54,10 +54,10 @@ function moveBall() {
   }
 
   // Überprüfe, ob der Ball in ein Tor gefallen ist
-  if (ball.x - ball.radius < goals.left) {
+  if (ball.x - ball.radius < goals.left && ball.y - ball.radius <= canvas.height / 4 && ball.y - ball.radius >= canvas.height / 2) {
     rightScore++;
     resetBall();
-  } else if (ball.x + ball.radius > goals.right) {
+  } else if (ball.x + ball.radius > goals.right && ball.y - ball.radius <= canvas.height / 4 && ball.y - ball.radius >= canvas.height / 2) {
     leftScore++;
     resetBall();
   }
