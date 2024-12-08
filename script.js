@@ -36,6 +36,11 @@ function drawField() {
   ctx.font = '20px Arial';
   ctx.fillText(`Linkes Team: ${leftScore}`, 20, 30);
   ctx.fillText(`Rechtes Team: ${rightScore}`, canvas.width - 140, 30);
+
+  // Timer einblenden
+  ctx.fillStyle = 'black';
+  ctx.font = '20px Arial';
+  ctx.fillText(`Verbleibende Zeit: ${gameTime}s`, canvas.width / 2 - 100, 30);
 }
 
 // Ballbewegung und Kollision
@@ -97,4 +102,5 @@ function gameLoop() {
 // Spiel starten
 startTimer();
 gameLoop();
+
 
