@@ -27,15 +27,15 @@ function drawField() {
   // Ball zeichnen
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-  ctx.fillStyle = 'yellow';
+  ctx.fillStyle = 'white';
   ctx.fill();
   ctx.closePath();
 
   // Ergebnisse zeichnen
   ctx.fillStyle = 'black';
   ctx.font = '20px Arial';
-  ctx.fillText(`Linkes Team: ${leftScore}`, 20, 30);
-  ctx.fillText(`Rechtes Team: ${rightScore}`, canvas.width - 140, 30);
+  ctx.fillText(`Linkes Team ${leftScore}`, 20, 30);
+  ctx.fillText(`${rightScore} Rechtes Team `, canvas.width - 140, 30);
 
   // Timer einblenden
   ctx.fillStyle = 'black';
@@ -89,7 +89,7 @@ function startTimer() {
 
 // Spielende und Ergebnisanzeige
 function endGame() {
-  alert(`Spiel beendet! Ergebnis: Linkes Team: ${leftScore} | Rechtes Team: ${rightScore}`);
+  alert(`Spiel beendet! Ergebnis: Linkes Team ${leftScore} : ${rightScore} Rechtes Team `);
 }
 
 // Hauptspiel-Loop
