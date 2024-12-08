@@ -2,7 +2,7 @@ const canvas = document.getElementById('field');
 const ctx = canvas.getContext('2d');
 
 const players = [
-  { x: 100, y: 200, color: 'blue', dx: 2 },
+  { x: 100, y: 200, color: 'black', dx: 2 },
   { x: 700, y: 200, color: 'red', dx: -2 },
 ];
 
