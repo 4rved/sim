@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tischkicker Simulation</title>
+  <style>
+    canvas {
+      background-color: green;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="field" width="800" height="400"></canvas>
+  <script>
+    const canvas = document.getElementById('field');
+    const ctx = canvas.getContext('2d');
+
+    // Spieler-Attribute
+    const players = [
+      { x: 100, y: 200, color: 'blue', dx: 2 },
+      { x: 700, y: 200, color: 'red', dx: -2 },
+    ];
+
+    function drawPlayers() {
+      players.forEach(player => {
+        ctx.beginPath();
+        ctx.arc(player.x, player.y, 10, 0, Math.PI * 2);
+        ctx.fillStyle = player.color;
+        ctx.fill();
+        ctx.closePath();
+      });
+    }
+
+    function updatePositions() {
+      players.forEach(player => {
+        player.x += player.dx;
+        // Grenzen prüfen
+        if (player.x < 10 || player.x > canvas.width - 10) {
+          player.dx *= -1;
+        }
+      });
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Spielfeld leeren
+      drawPlayers(); // Spieler zeichnen
+      updatePositions(); // Positionen aktualisieren
+      requestAnimationFrame(gameLoop); // Nächsten Frame starten
+    }
+
+    gameLoop();
+  </script>
+</body>
+</html>
